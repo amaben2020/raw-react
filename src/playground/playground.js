@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+// import useDarkMode from './hooks/useDarkMode';
 
 const Playground = () => {
+  // const [toggleSwitch, switchTheme] = useDarkMode();
+
+  // useEffect(() => {
+  //   toggleSwitch.addEventListener('change', switchTheme, false);
+  // }, [toggleSwitch, switchTheme]);
+
   const toggleSwitch = document.querySelector(
     '.theme-switch input[type="checkbox"]'
   );
@@ -32,7 +39,7 @@ const Playground = () => {
         <input type='checkbox' id='checkbox' />
         <div className='slider round'></div>
       </label>
-      <em>Enable Dark Mode!</em>
+      <em>Enable Dark Mode!!</em>
     </div>
   );
 };
