@@ -1,3 +1,4 @@
+import React from 'react';
 import createFastContext from './createFastContext';
 
 const { Provider, useStore } = createFastContext({
@@ -57,15 +58,15 @@ const ContentContainer = () => {
   );
 };
 
-function App() {
+function UsageOfUltraFastCtx() {
   return (
     <Provider>
       <div className='container'>
-        <h5>App</h5>
+        <h5>UsageOfUltraFastCtx</h5>
         <ContentContainer />
       </div>
     </Provider>
   );
 }
 
-export default App;
+export default UsageOfUltraFastCtx;

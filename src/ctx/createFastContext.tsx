@@ -5,6 +5,7 @@ import React, {
   useCallback,
   useSyncExternalStore,
 } from 'react';
+import './style.css';
 
 export default function createFastContext<Store>(initialState: Store) {
   function useStoreData(): {

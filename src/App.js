@@ -1,12 +1,14 @@
-import './App.css';
 import React from 'react';
-
+import './App.css';
 import Playground from './playground/playground';
+import UsageOfUltraFastCtx from './ctx/Usage';
 
 function App() {
   return (
     <div className='App'>
-      <Playground />
+      {/* <Playground /> */}
+
+      <UsageOfUltraFastCtx />
     </div>
   );
 }
