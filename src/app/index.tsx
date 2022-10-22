@@ -1,7 +1,8 @@
 import React from 'react';
+import FeedbackContext from './context';
 
 const Root = () => {
-  return <div>Root</div>;
+  return <FeedbackContext>Root</FeedbackContext>;
 };
 
 export default Root;
