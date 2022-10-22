@@ -18,22 +18,24 @@ export const Feedback = React.createContext<InitialState>(initialState);
 
 const { Provider } = Feedback;
 
-const addFeedback = React.useMemo(() => console.log('added'), []);
+const addFeedback = () => console.log('added');
+
+const add = React.useCallback(() => addFeedback, []);
+
+const { user, users, feedback } = initialState;
+
+const value = React.useMemo(
+  () => ({
+    add,
+    users,
+    user,
+    feedback,
+  }),
+  [add, users, user, feedback]
+);
 
 const FeedbackContext = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <Provider
-      // provided values to other components (consumers)
-      value={{
-        addFeedback,
-        users: initialState.users,
-        user: initialState.user,
-        feedback: initialState.feedback,
-      }}
-    >
-      {children}
-    </Provider>
-  );
+  return <Provider value={value}>{children}</Provider>;
 };
 
 export default FeedbackContext;
