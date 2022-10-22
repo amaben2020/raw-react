@@ -1,4 +1,5 @@
 import React from 'react';
+import Root from './app/index.tsx';
 import './App.css';
 
 import UsageOfUltraFastCtx from './ctx/Usage';
@@ -9,9 +10,11 @@ function App() {
     <div className='App'>
       {/* <Playground /> */}
 
-      <MessagesDisplayApp />
+      {/* <MessagesDisplayApp /> */}
 
-      <UsageOfUltraFastCtx />
+      {/* <UsageOfUltraFastCtx /> */}
+
+      <Root />
     </div>
   );
 }

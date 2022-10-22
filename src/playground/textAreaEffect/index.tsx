@@ -8,10 +8,11 @@ import * as React from 'react';
 
 function MessagesDisplay({ messages }: { messages: string }) {
   const containerRef = React.useRef(null);
+
+  // React.useDebugValue(
+  //   `\`${containerRef.current.scrollTop}\` => ${containerRef.current.scrollHeight}`
+  // );
   React.useLayoutEffect(() => {
-    React.useDebugValue(
-      `\`${containerRef.current.scrollTop}\` => ${containerRef.current.scrollHeight}`
-    );
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
   });
 
