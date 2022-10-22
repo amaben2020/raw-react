@@ -1,13 +1,9 @@
 import React from 'react';
 
-type InitialState = {
+export type InitialState = {
   feedback: [];
   users: [];
   user: {};
-};
-
-export type FeedbackContextProps = {
-  initialState: InitialState;
   addFeedback?: () => void;
 };
 
@@ -15,16 +11,28 @@ const initialState: InitialState = {
   feedback: [],
   users: [],
   user: {},
+  addFeedback: () => {},
 };
 
-export const Feedback = React.createContext<FeedbackContextProps | null>(null);
+export const Feedback = React.createContext<InitialState>(initialState);
 
 const { Provider } = Feedback;
 
 const addFeedback = () => console.log('added');
 
 const FeedbackContext = ({ children }: { children: React.ReactNode }) => {
-  return <Provider value={{ addFeedback, initialState }}>{children}</Provider>;
+  return (
+    <Provider
+      value={{
+        addFeedback,
+        users: initialState.users,
+        user: initialState.user,
+        feedback: initialState.feedback,
+      }}
+    >
+      {children}
+    </Provider>
+  );
 };
 
 export default FeedbackContext;

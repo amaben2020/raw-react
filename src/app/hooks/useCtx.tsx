@@ -1,8 +1,8 @@
 import React from 'react';
-import { Feedback, FeedbackContextProps } from '../context/index';
+import { Feedback, InitialState } from '../context/index';
 
 const useCtx = () => {
-  const info = React.useContext<FeedbackContextProps | null>(Feedback);
+  const info = React.useContext<InitialState>(Feedback);
 
   return info;
 };
