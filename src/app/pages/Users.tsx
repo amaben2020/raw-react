@@ -8,10 +8,12 @@ import usersInDb from './../../data/data.json';
 const Users = () => {
   const { users } = useCtx();
 
-  console.log(users);
+  // hey, add this to the global array on mount
+  React.useEffect(() => {
+    users.push(usersInDb.users);
+  }, [users]);
 
-  //@ts-ignore
-  const allUsers = users.concat(usersInDb.users);
+  console.log(users);
 
   return (
     <div>
