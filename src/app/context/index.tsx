@@ -18,23 +18,23 @@ export const Feedback = React.createContext<InitialState>(initialState);
 
 const { Provider } = Feedback;
 
-const addFeedback = () => console.log('added');
-
-const add = React.useCallback(() => addFeedback, []);
-
-const { user, users, feedback } = initialState;
-
-const value = React.useMemo(
-  () => ({
-    add,
-    users,
-    user,
-    feedback,
-  }),
-  [add, users, user, feedback]
-);
-
 const FeedbackContext = ({ children }: { children: React.ReactNode }) => {
+  const addFeedback = () => console.log('added');
+
+  const add = React.useCallback(addFeedback, []);
+
+  const { user, users, feedback } = initialState;
+
+  const value = React.useMemo(
+    () => ({
+      add,
+      users,
+      user,
+      feedback,
+    }),
+    [add, users, user, feedback]
+  );
+
   return <Provider value={value}>{children}</Provider>;
 };
 

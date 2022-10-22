@@ -1,5 +1,5 @@
 import React from 'react';
-import Root from './app/index.tsx';
+import Root from './app/index';
 import './App.css';
 
 import UsageOfUltraFastCtx from './ctx/Usage';
@@ -9,11 +9,8 @@ function App() {
   return (
     <div className='App'>
       {/* <Playground /> */}
-
       {/* <MessagesDisplayApp /> */}
-
       {/* <UsageOfUltraFastCtx /> */}
-
       <Root />
     </div>
   );
