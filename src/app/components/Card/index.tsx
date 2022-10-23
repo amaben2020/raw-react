@@ -9,7 +9,8 @@ const Card = ({ id, name, image }: CardProps<string>) => {
   return (
     <div className={style.card} data-emoji={`${id === 'p2' ? '✅' : ''}`}>
       <img src={images} className={style.image} alt='' />
-      <Link to={`/user/${id}`}>{name}</Link>
+      <h3>{name}</h3>
+      <Link to={`/user/${id}`}> Fill Out</Link>
     </div>
   );
 };
