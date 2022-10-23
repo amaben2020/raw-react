@@ -1,0 +1,96 @@
+import React, { useEffect, useState } from 'react';
+import style from './wizard.module.css';
+
+const initialState = {
+currentPage: 0,
+activePage: 0,
+};
+
+const WizardContext = React.createContext(initialState);
+
+const { Provider } = WizardContext;
+
+const Page1 = () => {
+return (
+<div>
+<h1>Page 1</h1>
+</div>
+);
+};
+
+const Page2 = () => {
+return (
+<div>
+<h1>Page 2</h1>
+</div>
+);
+};
+
+const Page3 = () => {
+return (
+<div>
+<h1>Page 3</h1>
+</div>
+);
+};
+
+const WizardHOF = ({ children }) => {
+const [hasMounted, setHasMounted] = useState(false);
+const [currentPage, setCurrentPage] = useState(0);
+
+useEffect(() => {
+setHasMounted(true);
+}, [hasMounted]);
+
+if (!hasMounted) return null;
+
+const renderPage = React.Children.toArray(children);
+
+const handlePageUpdate = (direction = '') => {
+if (direction === 'next') {
+setCurrentPage((prev) => prev + 1);
+} else {
+setCurrentPage((prev) => (currentPage > 0 ? prev - 1 : prev));
+}
+};
+
+return (
+<div className={style.layout}>
+<div className={style.wrapper}>
+<div>
+{renderPage.length > 0 ? renderPage[currentPage] : renderPage[0]}
+</div>
+
+        <div className={style.buttonArea}>
+          <button
+            disabled={currentPage === 0}
+            onClick={() => handlePageUpdate('nonNext')}
+          >
+            {' '}
+            Prev
+          </button>
+          <button
+            disabled={currentPage === renderPage.length - 1}
+            onClick={() => handlePageUpdate('next')}
+          >
+            {' '}
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+
+);
+};
+
+const Wizard = () => {
+return (
+<WizardHOF>
+<Page1 />
+<Page2 />
+<Page3 />
+</WizardHOF>
+);
+};
+
+export default Wizard;

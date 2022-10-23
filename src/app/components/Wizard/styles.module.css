@@ -1,0 +1,43 @@
+.card {
+  margin: 20px auto;
+  box-shadow: 0 0 2px rgba(20, 29, 22);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.card h3 {
+  padding-left: 10px;
+}
+@media screen and (max-width: 600px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .card a {
+    margin: auto;
+  }
+}
+
+.card a {
+  margin-left: auto;
+  background: rgb(164, 61, 164);
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.card a:hover {
+  background: white;
+  color: rgb(164, 61, 164);
+  border: 1px solid rgb(164, 61, 164);
+}
+
+.card[data-emoji]::before {
+  content: attr(data-emoji); /* Returns '✅' */
+  margin-right: 5px;
+}
+.image {
+  border-radius: 50%;
+  max-width: 70px;
+}
