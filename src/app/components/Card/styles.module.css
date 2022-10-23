@@ -3,13 +3,11 @@
   box-shadow: 0 0 2px rgba(20, 29, 22);
   padding: 20px;
 }
-
+.card[data-emoji]::before {
+  content: attr(data-emoji); /* Returns '✅' */
+  margin-right: 5px;
+}
 .image {
   border-radius: 50%;
   max-width: 70px;
-}
-
-[data-emoji]::before {
-  content: attr(data-emoji); /* Returns '✅' */
-  margin-right: 5px;
 }
