@@ -18,7 +18,7 @@ const Users = () => {
   return (
     <div>
       {usersInDb.users.map(({ id, avatarUrl, name }) => (
-        <Card key={id} image={avatarUrl} name={name} />
+        <Card key={id} id={id} image={avatarUrl} name={name} />
       ))}
     </div>
   );

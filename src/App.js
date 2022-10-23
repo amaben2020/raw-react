@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UsageOfUltraFastCtx from './ctx/Usage';
 import { MessagesDisplayApp } from './playground/textAreaEffect/index';
 
+import Feedback from './app/pages/Feedback';
 function App() {
   return (
     <div className='App'>
@@ -15,15 +16,11 @@ function App() {
       {/* <UsageOfUltraFastCtx /> */}
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Root />}>
-            {/* <Route index element={<Home />} /> */}
-            <Route path='/user' element={<Root />}>
-              <Route path='/user/:id' element={<Root />} />
-            </Route>
-          </Route>
+          <Route index element={<Root />} />
+          <Route path='/users' element={<Root />} />
+          <Route path='/user/:id' element={<Feedback />} />
         </Routes>
       </BrowserRouter>
-      ,{/* <Root /> */}
     </div>
   );
 }
