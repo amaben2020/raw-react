@@ -8,3 +8,8 @@
   border-radius: 50%;
   max-width: 70px;
 }
+
+[data-emoji]::before {
+  content: attr(data-emoji); /* Returns '✅' */
+  margin-right: 5px;
+}
