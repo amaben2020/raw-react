@@ -1,0 +1,3 @@
+This component should pass in an object that picks the label and updates the response object
+
+There would be a store that holds all responses

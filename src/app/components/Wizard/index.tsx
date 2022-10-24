@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 
-const Wizard = ({ children }: { children: React.ReactNode }) => {
+const Wizard = ({
+  children,
+  data,
+}: {
+  children: React.ReactNode;
+  data: any;
+}) => {
   const [hasMounted, setHasMounted] = useState(false);
   const [pointer, setPointer] = useState(0);
 
@@ -50,6 +56,9 @@ const Wizard = ({ children }: { children: React.ReactNode }) => {
           Next
         </button>
       </div>
+
+      {data[pointer].label}
+      {data[pointer].type === 'scale' ? 'yes' : 'no'}
     </div>
   );
 };

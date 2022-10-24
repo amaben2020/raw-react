@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Data from './../../data/data.json';
 
 export type InitialState = {
   feedback: [];
@@ -19,6 +20,8 @@ export const Feedback = React.createContext<InitialState>(initialState);
 const { Provider } = Feedback;
 
 const FeedbackContext = ({ children }: { children: React.ReactNode }) => {
+  const [qtn, setQuestions] = useState<any>(Data.questions);
+
   const addFeedback = () => console.log('added');
 
   const add = React.useCallback(addFeedback, []);
@@ -31,8 +34,10 @@ const FeedbackContext = ({ children }: { children: React.ReactNode }) => {
       users,
       user,
       feedback,
+      qtn,
+      setQuestions,
     }),
-    [add, users, user, feedback]
+    [add, users, user, feedback, qtn, setQuestions]
   );
 
   return <Provider value={value}>{children}</Provider>;
