@@ -20,8 +20,6 @@ export const Feedback = React.createContext<InitialState>(initialState);
 const { Provider } = Feedback;
 
 const FeedbackContext = ({ children }: { children: React.ReactNode }) => {
-  const [qtn, setQuestions] = useState<any>(Data.questions);
-
   const addFeedback = () => console.log('added');
 
   const add = React.useCallback(addFeedback, []);
@@ -34,10 +32,8 @@ const FeedbackContext = ({ children }: { children: React.ReactNode }) => {
       users,
       user,
       feedback,
-      qtn,
-      setQuestions,
     }),
-    [add, users, user, feedback, qtn, setQuestions]
+    [add, users, user, feedback]
   );
 
   return <Provider value={value}>{children}</Provider>;

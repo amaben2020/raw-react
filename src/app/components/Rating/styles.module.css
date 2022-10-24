@@ -1,0 +1,13 @@
+.starsWrapper {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 500px;
+  cursor: pointer;
+}
+.on {
+  color: #000;
+}
+.off {
+  color: #ccc;
+}

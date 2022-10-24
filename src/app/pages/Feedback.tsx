@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Card from '../components/Card';
+import Rating from '../components/Rating';
 import Wizard from '../components/Wizard';
+import useCtx from '../hooks/useCtx';
 import usersInDb from './../../data/data.json';
 import styles from './styles.module.css';
 
@@ -83,7 +85,7 @@ const Feedback = () => {
     <div className={styles.wrapper}>
       <Card name={user.name} image={user.avatarUrl} id={user.id} />
       <Wizard data={questions}>
-        <Comp1 />
+        <Rating />
         <Comp2 />
         <Comp3 />
         <Comp4 />
