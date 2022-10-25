@@ -11,16 +11,8 @@ const Wizard = ({
 }) => {
   const [hasMounted, setHasMounted] = useState(false);
   const [pointer, setPointer] = useState(0);
-  const [q, setQ] = useState([]);
 
-  const { state, dispatchQuestions } = useCtx();
-
-  useEffect(() => {
-    dispatchQuestions();
-    setQ(state);
-  }, []);
-
-  console.log(q);
+  const { state, dispatchResponses } = useCtx();
 
   useEffect(() => {
     setHasMounted(true);
@@ -29,6 +21,8 @@ const Wizard = ({
   if (!hasMounted) {
     return null;
   }
+
+  console.log(state);
 
   const Components = React.Children.toArray(children);
 
@@ -70,6 +64,10 @@ const Wizard = ({
 
       {data[pointer].label}
       {data[pointer].type === 'scale' ? 'yes' : 'no'}
+
+      <button onClick={() => dispatchResponses(data[pointer].label)}>
+        Mock Dispatch
+      </button>
     </div>
   );
 };
