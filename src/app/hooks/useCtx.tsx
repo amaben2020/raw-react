@@ -2,13 +2,18 @@ import React from 'react';
 import { Feedback, InitialState } from '../context/index';
 
 const useCtx = () => {
-  const data = React.useContext<InitialState>(Feedback);
-
-  if (!data) {
-    throw new Error('useAppState must be used within the AppProvider');
-  }
-
-  return data;
+  //@ts-ignore
+  const { dispatch, state, questions, users, add, dispatchQuestions } =
+    React.useContext<InitialState | undefined>(Feedback);
+  console.log(dispatch);
+  return {
+    dispatch,
+    state,
+    questions,
+    users,
+    add,
+    dispatchQuestions,
+  };
 };
 
 export default useCtx;

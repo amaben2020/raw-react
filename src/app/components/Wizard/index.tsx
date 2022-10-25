@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import useCtx from '../../hooks/useCtx';
 import styles from './styles.module.css';
 
 const Wizard = ({
@@ -10,6 +11,16 @@ const Wizard = ({
 }) => {
   const [hasMounted, setHasMounted] = useState(false);
   const [pointer, setPointer] = useState(0);
+  const [q, setQ] = useState([]);
+
+  const { state, dispatchQuestions } = useCtx();
+
+  useEffect(() => {
+    dispatchQuestions();
+    setQ(state);
+  }, []);
+
+  console.log(q);
 
   useEffect(() => {
     setHasMounted(true);
